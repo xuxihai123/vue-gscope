@@ -3,7 +3,7 @@ var merge = require("webpack-merge");
 var base = require("./webpack.config.base");
 var path = require("path");
 var pkg = require("../package.json");
-var globalName = "VueScope";
+var globalName = "VueGscope";
 module.exports = merge(base, {
 	output: {
 		path: path.resolve(__dirname, "../dist"),

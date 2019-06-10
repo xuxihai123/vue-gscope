@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const proxyMethod = (target, method, source) => {
 	Object.defineProperty(target, method, {
 		enumerable: false,
@@ -7,19 +9,23 @@ const proxyMethod = (target, method, source) => {
 	});
 };
 
+export const Scope = states => {
+	const scopeInstance = new Vue({ data: states });
+	const scope = scopeInstance.$data;
+	proxyMethod(scope, "$on", scopeInstance);
+	proxyMethod(scope, "$once", scopeInstance);
+	proxyMethod(scope, "$emit", scopeInstance);
+	proxyMethod(scope, "$off", scopeInstance);
+	return scope;
+};
 const VueScope = {
-	install(Vue, states = {}) {
-		const storeInstance = new Vue({ data: states });
-		const $data = storeInstance.$data;
-		VueScope.$scope = Vue.prototype.$scope = $data;
-		proxyMethod(Vue.prototype.$scope, "$on", storeInstance);
-		proxyMethod(Vue.prototype.$scope, "$once", storeInstance);
-		proxyMethod(Vue.prototype.$scope, "$emit", storeInstance);
-		proxyMethod(Vue.prototype.$scope, "$off", storeInstance);
+	install(Vue, scope = {}) {
+		Vue.prototype.$scope = scope;
 	}
 };
 
 VueScope.version = VERSION;
+VueScope.Scope = Scope;
 
 export default VueScope;
 if (typeof window !== "undefined" && window.Vue) {

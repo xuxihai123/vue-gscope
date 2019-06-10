@@ -1,16 +1,21 @@
 {
-	"name": "vue-scope",
+	"name": "vue-gscope",
 	"version": "0.0.1",
-	"main": "dist/vue-scope.common.js",
-	"browser": "dist/vue-scope.umd.js",
-	"description": "vuex replace with a tiny store",
+	"types": "./types/index.d.ts",
+	"main": "dist/vue-gscope.common.js",
+	"browser": "dist/vue-gscope.umd.js",
+	"description": "vuex replace with a tiny store plugin like angular $rootScope",
 	"scripts": {
 		"build": "npm run build:browser && npm run build:common",
 		"build:browser": "cross-env NODE_ENV=production webpack --config config/webpack.config.browser.js --progress --hide-modules",
 		"build:common": "cross-env NODE_ENV=production webpack --config config/webpack.config.common.js --progress --hide-modules"
 	},
 	"keywords": [
-		"vue-scope"
+		"vue-gscope",
+		"vue",
+		"store",
+		"scope",
+		"vuex"
 	],
 	"author": "xuxihai123",
 	"license": "MIT",

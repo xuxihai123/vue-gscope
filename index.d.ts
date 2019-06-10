@@ -7,4 +7,12 @@ declare module "vue/types/vue" {
 	}
 }
 
-export const install: PluginFunction<{}>;
+export declare class Scope {}
+
+export declare function install(Vue: typeof _Vue): void;
+
+declare const _default: {
+	Scope: typeof Scope;
+	install: typeof install;
+};
+export default _default;

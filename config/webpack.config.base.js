@@ -16,5 +16,13 @@ module.exports = {
 			VERSION: JSON.stringify(config.version)
 		}),
 		new webpack.ProvidePlugin({})
-	]
+	],
+	externals: {
+		vue: {
+			root: "Vue",
+			commonjs: "vue",
+			commonjs2: "vue",
+			amd: "vue"
+		}
+	}
 };
