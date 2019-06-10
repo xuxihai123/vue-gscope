@@ -1,6 +1,6 @@
 {
 	"name": "vue-gscope",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"types": "./types/index.d.ts",
 	"main": "dist/vue-gscope.common.js",
 	"browser": "dist/vue-gscope.umd.js",

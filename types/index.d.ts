@@ -1,5 +1,5 @@
 import _Vue, { PluginFunction } from "vue";
-
+import "./vue";
 export declare class Scope<T> {
 	constructor(states: any);
 }
