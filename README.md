@@ -13,17 +13,25 @@ $ npm run build
 ```
 
 usage
+```
+npm install vue-gscope --save-dev
+```
 
 ```js
-import VueScope from "vue-scope";
+import VueScope from "vue-gscope";
 
 const states = {
 	app: {
 		activePanel: false
 	},
-	user: null
+	user: {
+		name: "xxx"
+	}
 };
-Vue.use(VueScope, states);
+
+const scope = new VueScope.Scope(states);
+
+Vue.use(VueScope, scope);
 
 // usage in component
 console.log(this.$scope.user);
@@ -32,7 +40,7 @@ console.log(this.$scope.user);
 ```xml
 <template>
 	<div class="userinfo">
-		{{this.$scope.user.name}}
+		{{$scope.user.name}}
 	</div>
 </template>
 ```
