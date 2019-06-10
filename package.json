@@ -1,0 +1,27 @@
+{
+	"name": "vue-scope",
+	"version": "0.0.1",
+	"main": "dist/vue-scope.common.js",
+	"browser": "dist/vue-scope.umd.js",
+	"description": "vuex replace with a tiny store",
+	"scripts": {
+		"build": "npm run build:browser && npm run build:common",
+		"build:browser": "cross-env NODE_ENV=production webpack --config config/webpack.config.browser.js --progress --hide-modules",
+		"build:common": "cross-env NODE_ENV=production webpack --config config/webpack.config.common.js --progress --hide-modules"
+	},
+	"keywords": [
+		"vue-scope"
+	],
+	"author": "xuxihai123",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.6.1",
+		"cross-env": "^5.1.1",
+		"webpack": "^3.8.1",
+		"webpack-merge": "^4.1.1"
+	}
+}
